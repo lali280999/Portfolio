@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lalith Athithya – Robotics & Automation Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Resume website for Lalith Athithya, Robotics Integration and Automation Engineer." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #020617;
+      --card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --chip-bg: #111827;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1120px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+      border-radius: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      padding: 28px 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 20px;
+      }
+    }
+
+    .glow {
+      position: absolute;
+      inset: -40%;
+      opacity: 0.18;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.3), transparent 60%),
+        radial-gradient(circle at 90% 10%, rgba(96, 165, 250, 0.25), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(34, 197, 94, 0.18), transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-inner {
+      position: relative;
+      z-index: 1;
+      display: contents;
+    }
+
+    header {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+      padding-bottom: 14px;
+      margin-bottom: 4px;
+    }
+
+    .identity {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .name {
+      font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      background: rgba(15, 118, 110, 0.32);
+      border-radius: var(--radius-pill);
+      padding: 3px 10px;
+      border: 1px solid rgba(45, 212, 191, 0.35);
+      color: #a5f3fc;
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 540px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      white-space: nowrap;
+    }
+
+    .contact a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 14px 16px 14px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .section-heading h2 {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .stripe {
+      flex: 1;
+      margin-left: 10px;
+      height: 1px;
+      background: linear-gradient(to right, rgba(148, 163, 184, 0.4), transparent);
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(148, 163, 184, 0.85);
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-pill);
+      padding: 3px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+
+    .experience-item {
+      padding: 10px 10px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .experience-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .role {
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .company {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .meta span {
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--chip-bg);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 4px;
+      padding-left: 0;
+    }
+
+    li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 4px;
+      font-size: 0.88rem;
+      color: #e5e7eb;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      color: var(--accent);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+      font-size: 0.86rem;
+    }
+
+    .skill-group-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 2px;
+      color: #e5e7eb;
+    }
+
+    .skill-group-block {
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 12px;
+      padding: 8px 9px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      font-size: 0.78rem;
+      padding: 3px 7px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: var(--chip-bg);
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .edu-item {
+      margin-top: 6px;
+      padding: 8px 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      font-size: 0.88rem;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+    }
+
+    .edu-school {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .edu-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .courses {
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      margin-top: 4px;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.88rem;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .project {
+      padding: 8px 9px;
+      border-radius: 14px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .summary {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.12), transparent 55%),
+                  rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .summary strong {
+      color: #bae6fd;
+    }
+
+    .summary p + p {
+      margin-top: 4px;
+    }
+
+    footer {
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(51, 65, 85, 0.8);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="page">
+      <div class="glow"></div>
+      <div class="page-inner">
+        <header>
+          <div class="identity">
+            <div class="name">
+              <span>Lalith Athithya</span>
+              <span class="tag">Robotics & Automation</span>
+            </div>
+            <p class="subtitle">
+              Robotics integration & automation engineer with experience deploying
+              production workcells, optimizing warehouse systems, and applying
+              machine learning to real-world operations.
+            </p>
+          </div>
+          <div class="contact">
+            <span>📞 <a href="tel:+15084149285">(508)-414-9285</a></span>
+            <span>✉️ <a href="mailto:krishadi1999@gmail.com">krishadi1999@gmail.com</a></span>
+            <span>🔗 <a href="https://www.linkedin.com/in/lalnk/" target="_blank" rel="noreferrer">LinkedIn</a></span>
+            <span>💻 <a href="https://github.com/lali280999" target="_blank" rel="noreferrer">GitHub</a></span>
+          </div>
+        </header>
+
+        <main>
+          <div class="summary">
+            <p>
+              <strong>Robotics Integration System Engineer</strong> with experience across
+              warehouse automation, robotic workcells, and ML-driven document processing.
+              Comfortable leading cross-functional deployments from design through
+              production, with a focus on uptime, throughput, and reliability.
+            </p>
+          </div>
+
+          <section>
+            <div class="section-heading">
+              <h2>Work Experience</h2>
+              <span class="pill">Industry</span>
+            </div>
+            <div class="experience-list">
+              <article class="experience-item">
+                <div class="experience-header">
+                  <div>
+                    <div class="role">Robotics Integration System Engineer</div>
+                    <div class="company">Infosys Nova – contracted to Amazon Robotics</div>
+                  </div>
+                  <div class="meta">
+                    <span>Boston, MA</span>
+                    <span>July 2025 – Present</span>
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    Integrated cartesian robot, manipulator, and dual conveyance systems
+                    into a robotic workcell, reducing manual operations by 50% and
+                    achieving the Alpha Cell kingpin goal ahead of schedule.
+                  </li>
+                  <li>
+                    Directed production deployment, ensuring 100% on-time delivery and
+                    minimizing downtime during transition.
+                  </li>
+                  <li>
+                    Applied DFMEA and CONOPS analyses, reducing system failures by 30%
+                    and boosting throughput.
+                  </li>
+                  <li>
+                    Led a cross-functional team, achieving a 20% cycle time reduction and
+                    measurable cost savings.
+                  </li>
+                  <li>
+                    Streamlined end-to-end workflows by aligning robotic and conveyance
+                    interactions, improving dock floor efficiency and reaching sustained
+                    95%+ system uptime.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="experience-item">
+                <div class="experience-header">
+                  <div>
+                    <div class="role">Robotics Integration Engineer</div>
+                    <div class="company">Infosys Nova – contracted to Amazon Robotics</div>
+                  </div>
+                  <div class="meta">
+                    <span>Boston, MA</span>
+                    <span>Aug 2024 – July 2025</span>
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    Led robotic automation in the Sortation arm by analyzing improvements
+                    and designing, implementing, and optimizing workcells.
+                  </li>
+                  <li>
+                    Provided critical input to enhance system interactions with drive,
+                    identifying segmentation gaps and reducing collateral packages sent to
+                    exceptions through targeted controls.
+                  </li>
+                  <li>
+                    Led teams and support staff on critical deliverables, providing clear
+                    guidance, monitoring progress, and troubleshooting in real time to
+                    maintain continuous operations and high customer satisfaction.
+                  </li>
+                  <li>
+                    Utilized data analysis tools, hardware installation & commissioning,
+                    software testing, and shell scripting to meet operational demands and
+                    ensure timely delivery of solutions.
+                  </li>
+                  <li>
+                    Maintained efficient fleet performance and station uptime over 98%.
+                  </li>
+                  <li>
+                    Achieved over 60% cart automation on the outbound dock floor by
+                    integrating drives with robotic workcells.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="experience-item">
+                <div class="experience-header">
+                  <div>
+                    <div class="role">ML / Automation Engineer</div>
+                    <div class="company">Victory E-Services</div>
+                  </div>
+                  <div class="meta">
+                    <span>Jun 2021 – Jun 2022</span>
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    Devised a pipeline for digitizing and automating hand-filled forms,
+                    tackling interpretation of text within grid cells.
+                  </li>
+                  <li>
+                    Implemented a segmentation algorithm to distinguish printed and
+                    handwritten sections, optimizing data extraction.
+                  </li>
+                  <li>
+                    Integrated U-Net and Transformer architectures to accurately place
+                    handwritten content into e-form fields.
+                  </li>
+                  <li>
+                    Achieved 85% accuracy and reduced form-filling time by 10%, increasing
+                    operational efficiency.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="experience-item">
+                <div class="experience-header">
+                  <div>
+                    <div class="role">Robotics Intern</div>
+                    <div class="company">B.S. Apparels</div>
+                  </div>
+                  <div class="meta">
+                    <span>Jan 2021 – Mar 2021</span>
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    Automated an industrial fabric folding machine using pneumatic
+                    cylinders and a PIC microcontroller.
+                  </li>
+                  <li>
+                    Integrated a camera with the microcontroller to detect proper
+                    alignment of clothes and ensure safe operation.
+                  </li>
+                  <li>
+                    Engineered the folding process to ensure proper shirt folding,
+                    reducing operation time by 25%.
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section>
+            <div class="section-heading">
+              <h2>Relevant Academic Projects</h2>
+              <span class="pill">Selected</span>
+            </div>
+            <div class="projects-list">
+              <article class="project">
+                <div class="project-title">Autonomous Drone Racing with Vision-Based Navigation</div>
+                <ul>
+                  <li>
+                    Developed perception and planning stacks for vision-based navigation
+                    through known and unknown windows.
+                  </li>
+                  <li>
+                    Created a dataset in Blender with varying lighting and orientations
+                    for sim-to-real transfer of the known window detector.
+                  </li>
+                  <li>
+                    Trained an EfficientNet model and optimized it using TensorRT for
+                    execution on a Jetson Orin Nano.
+                  </li>
+                  <li>
+                    Utilized SpyNet (optical flow) and visual servoing to detect and pass
+                    through unknown gaps.
+                  </li>
+                  <li>
+                    Successfully navigated an obstacle course without collisions and
+                    secured first place in autonomous drone racing.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="project">
+                <div class="project-title">Positional & Velocity Control of SCARA Manipulator</div>
+                <ul>
+                  <li>
+                    Integrated an RRP (SCARA) manipulator in Gazebo with ROS 2 for
+                    precise robotic control.
+                  </li>
+                  <li>
+                    Implemented a PD controller to improve accuracy, minimize errors, and
+                    eliminate overshoot.
+                  </li>
+                  <li>
+                    Extended control stack with a velocity controller to further enhance
+                    performance.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="project">
+                <div class="project-title">
+                  Quality & Reliability Engineering with Catapult Simulation
+                </div>
+                <ul>
+                  <li>
+                    Executed an end-to-end DMAIC project to improve catapult process
+                    capability, raising yield from 20% to 44.1%.
+                  </li>
+                  <li>
+                    Performed Design of Experiments (DOE), regression, and FMEA to
+                    identify root causes and reduce variation.
+                  </li>
+                  <li>
+                    Improved measurement accuracy and ergonomics via carbon paper
+                    tracking and base stabilization.
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </section>
+        </main>
+
+        <aside>
+          <section>
+            <div class="section-heading">
+              <h2>Education</h2>
+              <span class="pill">Academic</span>
+            </div>
+            <div class="edu-item">
+              <div class="edu-header">
+                <div>
+                  <div class="edu-degree">M.S. in Robotics Engineering</div>
+                  <div class="edu-school">Worcester Polytechnic Institute (WPI)</div>
+                </div>
+                <div class="edu-meta">Worcester, MA • May 2024</div>
+              </div>
+              <div class="courses">
+                <strong>Relevant Courses:</strong>
+                Computer Vision, Deep Learning, Robot Control, Motion Planning,
+                Project Management, Systems Engineering
+              </div>
+            </div>
+
+            <div class="edu-item">
+              <div class="edu-header">
+                <div>
+                  <div class="edu-degree">B.Tech in Mechatronics Engineering</div>
+                  <div class="edu-school">Sri Krishna College of Engineering and Technology (SKCET)</div>
+                </div>
+                <div class="edu-meta">India • May 2021</div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="section-heading">
+              <h2>Technical Skills</h2>
+              <span class="pill">Core</span>
+            </div>
+            <div class="skills-grid">
+              <div class="skill-group-block">
+                <div class="skill-group-title">Languages</div>
+                <div class="skill-chips">
+                  <span class="chip">Python</span>
+                  <span class="chip">C</span>
+                  <span class="chip">C++</span>
+                  <span class="chip">MATLAB</span>
+                </div>
+              </div>
+
+              <div class="skill-group-block">
+                <div class="skill-group-title">Robotics & Tools</div>
+                <div class="skill-chips">
+                  <span class="chip">ROS</span>
+                  <span class="chip">Isaac Sim</span>
+                  <span class="chip">ABB RobotStudio</span>
+                  <span class="chip">RoboGuide</span>
+                  <span class="chip">Carla Simulator</span>
+                  <span class="chip">Arduino</span>
+                  <span class="chip">Raspberry Pi</span>
+                  <span class="chip">Orin Nano</span>
+                  <span class="chip">SOLIDWORKS</span>
+                  <span class="chip">ANSYS</span>
+                </div>
+              </div>
+
+              <div class="skill-group-block">
+                <div class="skill-group-title">Software & Infra</div>
+                <div class="skill-chips">
+                  <span class="chip">Git</span>
+                  <span class="chip">Linux</span>
+                  <span class="chip">Bash</span>
+                  <span class="chip">Dockers</span>
+                  <span class="chip">gRPC</span>
+                  <span class="chip">SQL</span>
+                  <span class="chip">TCP/IP</span>
+                  <span class="chip">I2C</span>
+                  <span class="chip">Networking</span>
+                  <span class="chip">WireShark</span>
+                </div>
+              </div>
+
+              <div class="skill-group-block">
+                <div class="skill-group-title">ML & Libraries</div>
+                <div class="skill-chips">
+                  <span class="chip">PyTorch</span>
+                  <span class="chip">TensorFlow</span>
+                  <span class="chip">CUDA</span>
+                  <span class="chip">scikit-learn</span>
+                  <span class="chip">Pandas</span>
+                  <span class="chip">NumPy</span>
+                  <span class="chip">OpenCV</span>
+                </div>
+              </div>
+
+              <div class="skill-group-block">
+                <div class="skill-group-title">Project Management</div>
+                <div class="skill-chips">
+                  <span class="chip">Project Life Cycle</span>
+                  <span class="chip">Waterfall</span>
+                  <span class="chip">Agile</span>
+                  <span class="chip">Fishbone Diagram</span>
+                  <span class="chip">Risk Management</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <footer>
+          <div>© <span id="year"></span> Lalith Athithya</div>
+          <div class="footer-links">
+            <a href="mailto:krishadi1999@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/lalnk/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/lali280999" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Set footer year dynamically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
